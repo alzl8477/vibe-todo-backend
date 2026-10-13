@@ -29,6 +29,8 @@ app.get("/", (_req, res) => {
 app.use("/todos", todoRouter);
 
 async function startServer() {
+  console.log(`MONGODB_URI 환경변수 설정 여부: ${mongoUri ? "있음" : "없음"}`);
+
   try {
     if (!mongoUri) {
       throw new Error("MONGODB_URI 환경변수가 설정되지 않았습니다.");
